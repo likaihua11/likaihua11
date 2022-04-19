@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+>
+    <data>
+<variable
+    name="users"
+    type="com.example.likaihua.Users" />
+<import type="android.view.View"></import>
+<import type="java.util.List"/>
+<variable
+    name="list"
+    type="List&lt;String>" />
+<variable
+    name="index"
+    type="java.lang.Integer" />
+
+</data>
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity"
+android:orientation="vertical">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{list[index]}"></TextView>
+<EditText
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content"
+    android:id="@+id/main_ed"></EditText>
+<TextView
+    android:id="@+id/main_out"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{mainEd.text}"></TextView>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{users.name}"></TextView>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{String.valueOf(users.id)}"
+    android:textSize="200dp"
+    android:id="@+id/sss"
+    android:visibility="@{users.id &lt; 0 ? View.GONE : View.INVISIBLE}"></TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+    </layout>
